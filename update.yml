@@ -644,6 +644,24 @@ light:
             for (uint8_t i = 0; i < ${no_of_leds}; i++) {
               it[i] = color;
             }
+      - addressable_lambda:
+          name: "Volume Display"
+          update_interval: 16ms
+          lambda: |-
+            auto light_color = id(led_ring).current_values;
+            Color color(light_color.get_red() * 255, light_color.get_green() * 255,
+                  light_color.get_blue() * 255);
+
+            float volume = id(external_media_player).volume;
+            uint8_t leds_on = static_cast<uint8_t>(round(volume * ${no_of_leds}));
+
+            for (uint8_t i = 0; i < ${no_of_leds}; i++) {
+              if (i < leds_on) {
+                it[i] = color;
+              } else {
+                it[i] = Color::BLACK;
+              }
+            }
       - addressable_twinkle:
           name: "Twinkle"
           twinkle_probability: 50%
