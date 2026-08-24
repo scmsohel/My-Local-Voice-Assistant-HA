@@ -662,6 +662,40 @@ light:
                 it[i] = Color::BLACK;
               }
             }
+      - addressable_lambda:
+          name: "Jack Unplugged"
+          update_interval: 50ms
+          lambda: |-
+            auto light_color = id(led_ring).current_values;
+            Color color(light_color.get_red() * 255, light_color.get_green() * 255,
+                  light_color.get_blue() * 255);
+            static int pos = 0;
+            for (uint8_t i = 0; i < ${no_of_leds}; i++) {
+              int distance = abs((int)i - pos);
+              if (distance <= 2) {
+                it[i] = color * uint8_t(255 - distance * 80);
+              } else {
+                it[i] = Color::BLACK;
+              }
+            }
+            pos = (pos + 1) % ${no_of_leds};
+      - addressable_lambda:
+          name: "Jack Plugged"
+          update_interval: 50ms
+          lambda: |-
+            auto light_color = id(led_ring).current_values;
+            Color color(light_color.get_red() * 255, light_color.get_green() * 255,
+                  light_color.get_blue() * 255);
+            static int pos = ${no_of_leds} - 1;
+            for (uint8_t i = 0; i < ${no_of_leds}; i++) {
+              int distance = abs((int)i - pos);
+              if (distance <= 2) {
+                it[i] = color * uint8_t(255 - distance * 80);
+              } else {
+                it[i] = Color::BLACK;
+              }
+            }
+            pos = (${no_of_leds} + pos - 1) % ${no_of_leds};
       - addressable_twinkle:
           name: "Twinkle"
           twinkle_probability: 50%
