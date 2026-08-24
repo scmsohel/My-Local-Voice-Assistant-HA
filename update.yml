@@ -30,9 +30,8 @@ substitutions:
   center_button_long_press_sound_file: https://github.com/esphome/home-assistant-voice-pe/raw/dev/sounds/center_button_long_press.flac
 
 esphome:
-  name: voice-assistant
-  friendly_name: Voice Assistant
-  name_add_mac_suffix: true
+  name: ha-voice-assistant
+  friendly_name: Ha Voice Assistant
   min_version: 2025.9.3
   on_boot:
     priority: 375
@@ -76,8 +75,8 @@ wifi:
   on_disconnect:
     - script.execute: control_leds
   ap:
-    ssid: Voice Assistant Fallback Hotspot
-    password: "kaJK34EEhkuB"
+    ssid: Ha Voice Assist Fallback Hotspot
+    password: "kaAGhjrKJFtF"
 
 captive_portal:
 
@@ -92,7 +91,7 @@ logger:
 api:
   id: api_id
   encryption:
-    key: "PsuE+bdj6CClS6ZzdVBYtd2u5KqzOe45j4BR99kQIvY="
+    key: "2gwcX9YT7jyUyeXkZZERgsnXNVM6HEVqGcNfoaPP0sg="
   on_client_connected:
     - script.execute: control_leds
   on_client_disconnected:
