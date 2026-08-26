@@ -1696,3 +1696,10 @@ button:
 
 debug:
   update_interval: 5s
+
+# Added to bt proxy
+
+esp32_ble_tracker:
+
+bluetooth_proxy:
+  active: true   
