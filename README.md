@@ -81,6 +81,20 @@ You will need:
 
 ---
 
+# Circuit Diagram for ESP32 S3 With INMP441 Microphone & MAX98357A Audio Amplifier
+
+This project uses an ESP32-S3 with:
+
+- INMP441 I2S Microphone
+- MAX98357A I2S Audio Amplifier
+- Speaker
+- Mute Switch
+- WS2812B LED Strip
+
+![Circuit Diagram](circuit-diagram(1).webp)
+
+---
+
 # Hardware Wiring
 
 ## INMP441 Microphone
