@@ -91,7 +91,7 @@ This project uses an ESP32-S3 with:
 - Mute Switch
 - WS2812B LED Strip
 
-![Circuit Diagram](circuit-diagram(1).webp)
+![Circuit Diagram](circuit-diagram.webp)
 
 ---
 
