@@ -8,6 +8,21 @@ A DIY ESP32-S3 based Home Assistant Voice Assistant with on-device wake word det
 
 # Version History
 
+## v1.2 - 2026-08-28
+
+ IR Control Support Added
+
+- Added IR Receiver support for learning and detecting remote control signals
+- Added IR Transmitter support for sending IR commands
+- Added initial IR control button for Fan Light
+- IR receiver can detect and decode supported remote protocols
+- Raw/Pronto IR data can also be captured for unsupported remotes
+- Enables Home Assistant and Voice Assistant integration for controlling IR devices
+
+### Example Voice Commands
+- Turn on the Fan Light
+- Turn off the Fan Light
+
 ## v1.1 - 2026-08-28
 
 - Added animated faces for idle, listening, thinking and replying states
