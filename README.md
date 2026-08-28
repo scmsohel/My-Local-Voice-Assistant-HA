@@ -8,6 +8,16 @@ A DIY ESP32-S3 based Home Assistant Voice Assistant with on-device wake word det
 
 # Version History
 
+## v1.1 - 2026-08-28
+
+- Added animated faces for idle, listening, thinking and replying states
+- Added sleep face after inactivity
+- Added Home Assistant UI control for sleep timeout
+- Added selectable timeout options from 30 seconds to 10 minutes
+- Added Never option to disable sleep mode
+- Added display color palette optimization
+- Synced replying face with media player announcing state
+
 ## v1.0.1 - 2026-08-26
 
 ### Added
