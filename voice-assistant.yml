@@ -122,6 +122,27 @@ psram:
   speed: 80MHz
   ignore_not_found: false  # The VPE has PSRAM, so this is safe. Allows configuring WiFi driver to use more resources (done automatically by the speaker media player)
 
+# IR Remote  
+
+#remote_receiver:
+#  pin:
+#    number: GPIO11
+#    inverted: true
+#    mode:
+#      input: true
+#  dump: all
+#  tolerance: 25%
+#  filter: 50us
+#  idle: 10ms
+
+
+remote_transmitter:
+  pin: GPIO12
+  carrier_duty_percent: 50%  
+
+  
+# GC9A01A Display
+  
 spi:
   clk_pin: GPIO18
   mosi_pin: GPIO17
@@ -2206,6 +2227,14 @@ button:
     disabled_by_default: true
     icon: "mdi:restart"
 
+# IR Remote  
+
+  - platform: template
+    name: "Fan Light"
+    on_press:
+      - remote_transmitter.transmit_nec:
+          address: 0x7ED8
+          command: 0xF807    
 debug:
   update_interval: 5s
 
@@ -2216,3 +2245,15 @@ esp32_ble_tracker:
 bluetooth_proxy:
   active: true   
 
+
+# ---------------- mice test ----------------
+sensor:
+  - platform: sound_level
+    microphone: i2s_mics
+    passive: true
+
+    peak:
+      name: "Microphone Peak Loudness"
+
+    rms:
+      name: "Microphone Average Loudness"
